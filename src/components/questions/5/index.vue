@@ -10,6 +10,7 @@
 
 <script>
 import CustomInput from "@/components/questions/5/CustomInput";
+
 export default {
   name: "index",
   components: {CustomInput},
