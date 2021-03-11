@@ -11,10 +11,9 @@
 import SlotsComponentUser from "@/components/questions/8/SlotsComponentUser";
 export default {
 name: "SlotsComponent",
-  components: {SlotsComponentUser},
+  components: {SlotsComponentUser}
 }
 </script>
 
 <style scoped>
-
 </style>
