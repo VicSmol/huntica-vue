@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     submit() {
-      this.action = 'https://test.com';
+      this.$refs.form.action = 'https://test.com'
       this.$refs.form.submit();
     }
   },
