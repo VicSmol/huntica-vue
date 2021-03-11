@@ -3,7 +3,7 @@
 <!--  TODO: Реализовать переключение роутов заданий при переключении селекта  -->
     <div class="warning">Навигация через select - не реализована. Необходимо реализовать</div>
     Выберите задание:
-    <select v-model="question">
+    <select v-model="question" @change="goToQuestion(question)">
       <option value="">не выбрано</option>
       <option :key="question" v-for="question in questions" :value="question">{{question}}</option>
     </select>
@@ -31,6 +31,11 @@ export default {
       return getQuestionsList();
     },
   },
+  methods: {
+    goToQuestion(question) {
+      this.$router.push({path: `/${question}`});
+    }
+  }
 }
 </script>
 
