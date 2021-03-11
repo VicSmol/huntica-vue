@@ -5,6 +5,7 @@
     <li
         v-for="user in users"
         :key="user.id"
+        v-show="user.isActive"
     >
       {{ user.name }}
     </li>
