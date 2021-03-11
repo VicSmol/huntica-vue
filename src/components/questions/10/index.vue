@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- FIXME при переключении шагов введенные значения пропадают -->
-    <StepsComponentOne v-if="step === 1" />
-    <StepsComponentTwo v-else />
+    <StepsComponentOne v-if="step === 1" v-model="text"/>
+    <StepsComponentTwo v-else v-model="text"/>
     <button @click="step === 1 ? next() : back()">
       <template v-if="step === 1">
           Далее
@@ -23,7 +23,8 @@ export default {
   components: {StepsComponentTwo, StepsComponentOne},
   data() {
     return {
-      step: 1
+      step: 1,
+      text: ''
     }
   },
   methods: {

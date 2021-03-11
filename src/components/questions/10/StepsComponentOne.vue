@@ -8,11 +8,22 @@
 <script>
 export default {
   name: "StepsComponentOne",
-  data() {
-    return {
-      text: ''
+  props: {
+    value: {
+      type: String,
+      default: ''
     }
   },
+  computed: {
+    text: {
+      get() {
+        return this.value
+      },
+      set(value) {
+        this.$emit('input', value);
+      }
+    }
+  }
 }
 </script>
 
