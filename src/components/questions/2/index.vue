@@ -1,6 +1,6 @@
 <template>
   <!-- FIXME: отправка формы перезагружает страницу после submit -->
-  <form @submit="onSubmit">
+  <form @submit.prevent="onSubmit">
     <input placeholder="name" v-model="name" id="name" /><br  /><br />
     <input placeholder="last name" v-model="lastName" id="lastName" />
     <br />
@@ -20,6 +20,8 @@ export default {
   methods: {
     onSubmit() {
       alert(`${this.name} ${this.lastName}`);
+
+      this.name = this.lastName = ''
     }
   },
 }
