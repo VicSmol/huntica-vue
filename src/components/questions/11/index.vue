@@ -7,7 +7,7 @@
     </div>
     <div class="parent" @click="onParentCLick">
       <div class="parent-title">Parent div</div>
-      <button @click="onChildClick">child click</button>
+      <button @click.stop="onChildClick">child click</button>
     </div>
   </div>
 </template>
