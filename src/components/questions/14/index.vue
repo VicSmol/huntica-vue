@@ -1,5 +1,6 @@
 <template>
   <!-- TODO: провести ревью компонента, и сделать рефакторинг -->
+  <!--TODO: сделал так, как думал-->
   <div>
     <header class="header">
       <nav class="header-nav" />
@@ -9,24 +10,17 @@
     </header>
     <main>
       <div class="container">
-        <div class="todo-list">
-          <div
-              v-for="{ id, title, completed } in todos"
-              :key="id"
-              class="todo-list__task"
-          >
-            <span :class="{ 'todo-list__task--completed': completed }">
-              {{ title }}
-            </span>
-          </div>
-        </div>
+        <todo-component v-model="todos"></todo-component>
       </div>
     </main>
   </div>
 </template>
 <script>
+import TodoComponent from "./todoComponent";
+
 export default {
   name: "ReviewAndRefactor",
+  components: {TodoComponent},
   data() {
     return {
       todos: []
