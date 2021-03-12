@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- TODO: при нажатии на кнопку "Enter Email" инпут должен появляться с фокусом на нем-->
-    <input v-if="showEmailInput" ref="email">
+    <input v-if="showEmailInput" v-focus >
     <button @click="show">Enter Email</button>
   </div>
 </template>
@@ -17,13 +17,17 @@ export default {
   methods: {
     show() {
       this.showEmailInput = true
-
-      this.$nextTick(() => this.$refs.email.focus())
+    }
+  },
+  directives: {
+    focus: {
+      inserted: function (element) {
+        element.focus();
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-
 </style>
