@@ -1,13 +1,13 @@
 <template>
-<!-- TODO: При переключении типа логина, введенные значения должны очищаться -->
+<!-- TODO: При переключении типа логина, введенные значения должны очищаться || key look -->
   <div>
     <template v-if="loginType === 'phone'">
       <label>Phone</label>
-      <input v-model="text" placeholder="Enter your phone">
+      <input key="phone" placeholder="Enter your phone">
     </template>
     <template v-else>
       <label>Login</label>
-      <input v-model="text" placeholder="Enter your login">
+      <input key="mail" placeholder="Enter your login">
     </template>
     <button @click="switchMethod">Change login type</button>
   </div>
@@ -18,15 +18,12 @@ export default {
   name: "LoginType",
   data() {
     return {
-      loginType: 'phone',
-      text: ''
+      loginType: 'phone'
     }
   },
   methods: {
     switchMethod() {
       this.loginType = this.loginType === 'phone' ? 'email' : 'phone';
-
-      this.text = ''
     }
   },
 }
