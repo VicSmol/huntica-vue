@@ -1,45 +1,26 @@
 <template>
-    <div>
-      <input v-model.trim="phone" class="phone" placeholder="phone" />
-      <span v-if="error">Неправильно введен номер телефона</span>
-    </div>
+  <div>
+    <input v-model.trim="phone">
+    <br><br>
+    <phone-validation :value="phone"></phone-validation>
+  </div>
 </template>
 
 <script>
 // TODO: реализовать валидацию входных данных свойства и валидацию input - тип телефон, вида +7(XXX)-XXX-XX-XX
-//TODO: Сделал неправильно, т.к. не работал валидатор на prop value
+
+import PhoneValidation from "./PhoneValidation";
+
 export default {
-  name: "PhoneValidation",
-  props: {
-    value: {
-      type: String,
-      default: '',
-      required: true,
-    },
-  },
+  name: "PhoneCheck",
+  components: {PhoneValidation},
   data() {
     return {
-      error: Boolean
+      phone: ''
     }
-  },
-  computed: {
-    phone: {
-      get() {
-        return this.value
-      },
-      set(value) {
-        const predicate = value.match(/^\+7\(\d{3}\)-\d{3}-\d{2}-\d{2}$/) !== null;
-
-        this.value = predicate ? value : this.value
-        this.error = !predicate
-      }
-    }
-  },
+  }
 }
 </script>
 
 <style scoped>
-  .error {
-    color: red
-  }
 </style>
