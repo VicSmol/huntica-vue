@@ -1,17 +1,24 @@
 <template>
   <div>
-    <SlotsComponentUser>
-      <!-- FIXME: при переопределении слота, username не отображается -->
+    <!-- FIXME: при переопределении слота, username не отображается -->
+    <!--    FIXME: слот был неправильно переопределён (поле username выводилось, а объявлено не было)-->
+    <slots-component-user>
       <span>Login: {{username}}</span>
-    </SlotsComponentUser>
+    </slots-component-user>
   </div>
 </template>
 
 <script>
 import SlotsComponentUser from "@/components/questions/8/SlotsComponentUser";
+
 export default {
 name: "SlotsComponent",
-  components: {SlotsComponentUser}
+  components: {SlotsComponentUser},
+  data: function () {
+    return {
+      username: 'NewVasyan'
+    }
+  }
 }
 </script>
 
