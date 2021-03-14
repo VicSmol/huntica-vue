@@ -1,12 +1,11 @@
 <template>
   <div>
-    <!-- FIXME: при нажатии на кнопку send форма отправляется по старому адресу -->
-    <form ref="form" :action="action" >
-      <input placeholder="Enter email" name="email" />
+    <!-- FIXME: при нажатии на кнопку send форма отправляется по старому адресу  || рендеринг компонентов-->
+    <form ref="form" :action="action">
+      <input placeholder="Enter email" :key="action" />
     </form>
     <button @click="submit">Send</button>
   </div>
-
 </template>
 
 <script>
@@ -18,11 +17,14 @@ export default {
     }
   },
   methods: {
-    submit() {
-      this.$refs.form.action = 'https://test.com'
+    async submit() {
+      this.action = 'https://test.com';
+
+      await this.$nextTick();
+
       this.$refs.form.submit();
     }
-  },
+  }
 }
 </script>
 
